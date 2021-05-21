@@ -1,0 +1,17 @@
+{
+  "name": "graph-server-express",
+  "version": "1.0.0",
+  "description": "GraphQL server developed with Express JS",
+  "main": "index.js",
+  "author": "Damien Suhard <ptitdam2001@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

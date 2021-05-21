@@ -1,0 +1,35 @@
+{
+	"server": {
+		"port": 4000
+	},
+	"database": {
+		"dbFile": "./db/test.db",
+		"tables": [
+			{
+				"name": "test",
+				"route": "/test",
+				"fields": [
+					{
+						"name": "mytest",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"name": "test2",
+				"route": "/test2",
+				"fields": [
+					{
+						"name": "myid",
+						"type": "number"
+					},
+					{
+						"name": "myfield",
+						"type": "string",
+						"isUnique": true
+					}
+				]
+			}
+		]
+	}
+}
