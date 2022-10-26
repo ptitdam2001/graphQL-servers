@@ -1,5 +1,23 @@
 {
+  "name": "graphQLServer",
+  "version": "1.0.0",
+  "description": "GraphQL sample to configure a server and to use it in NoSQL database",
+  "main": "dist/index.js",
+  "repository": "git@github.com:ptitdam2001/graphQL-servers.git",
+  "author": "Suhard Damien <ptitdam2001@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "sqlite3": "^5.0.2"
+    "@apollo/server": "^4.0.3",
+    "apollo-datasource": "^3.3.2",
+    "apollo-datasource-mongodb": "^0.5.4",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.5",
+    "typescript": "^4.8.4"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
   }
 }
