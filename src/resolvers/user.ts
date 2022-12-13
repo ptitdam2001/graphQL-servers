@@ -1,12 +1,13 @@
 import { ServerContext } from '../server'
 
 export const userResolvers = {
-  getAllUser: (_: any, __: any, context: ServerContext) => context.users.data,
+  getAllUser: async (_: any, __: any, context: ServerContext) => await context.users.getAll(),
+  getOneUser: async (_: any, { id }, context: ServerContext) => await context.users.getOne(id),
 }
 
 export const userMutationResolvers = {
-  addUser: (_: any, {firstname, lastname, email} : CreateUser, context: ServerContext) => {
-    context.users.add({ lastname, firstname, email })
-    return context.users.data
+  addUser: async (_: any, {firstname, lastname, email} : CreateUser, context: ServerContext) => {
+    const result = await context.users.create({ lastname, firstname, email })
+    return result
   },
 }

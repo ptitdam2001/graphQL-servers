@@ -1,11 +1,14 @@
+import { invoiceMutationResolvers, invoiceResolvers } from "./invoice"
 import { userMutationResolvers, userResolvers } from "./user"
 
 const resolvers = {
   Query: {
-    ...userResolvers
+    ...userResolvers,
+    ...invoiceResolvers
   },
   Mutation: {
-    ...userMutationResolvers
+    ...userMutationResolvers,
+    ...invoiceMutationResolvers
   }
 }
 

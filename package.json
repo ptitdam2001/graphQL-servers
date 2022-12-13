@@ -10,7 +10,11 @@
     "@apollo/server": "^4.0.3",
     "apollo-datasource": "^3.3.2",
     "apollo-datasource-mongodb": "^0.5.4",
-    "graphql": "^16.6.0"
+    "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.27.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.5",

@@ -1,21 +1,19 @@
 import { CreationOptional, Model, Optional, Sequelize } from 'sequelize'
 import { GenericDataSource } from './GenericDataSource'
-import field from './user.model'
+import field from './invoice.model'
 
-export type UserEntity = {
+export type InvoiceEntity = {
   id: number
-  firstname: string
-  lastname: string
-  email: string
+  reference: string
+  invoiceDate: string
 }
 
-type UserCreationAttributes = Optional<UserEntity, 'id'>
+type InvoiceCreationAttributes = Optional<InvoiceEntity, 'id'>
 
-class UserModel extends Model<UserEntity, UserCreationAttributes> {
+class InvoiceModel extends Model<InvoiceEntity, InvoiceCreationAttributes> {
   declare id: CreationOptional<number>;
-  declare firstname: string;
-  declare lastname: string;
-  declare email: string;
+  declare reference: string;
+  declare invoiceDate: string;
 
   // timestamps!
   // createdAt can be undefined during creation
@@ -25,23 +23,24 @@ class UserModel extends Model<UserEntity, UserCreationAttributes> {
 }
 
 
-export class UserData extends GenericDataSource<UserModel, UserEntity, UserCreationAttributes> {
+export class InvoiceData extends GenericDataSource<InvoiceModel, InvoiceEntity, InvoiceCreationAttributes> {  
+  
   constructor(sequelizeInstance: Sequelize) {
-    super(sequelizeInstance, 'users', field);
+    super(sequelizeInstance, 'invoices', field);
   }
 
-  async getOne(id: number): Promise<UserEntity|null> {
+  async getOne(id: number): Promise<InvoiceEntity|null> {
     const result = await this.model.findByPk(id);
     return result;
   }
-  async getAll(): Promise<UserEntity[]> {
+  async getAll(): Promise<InvoiceEntity[]> {
     return await this.model.findAll();
   }
-  async create(data: UserCreationAttributes): Promise<UserEntity> {
+  async create(data: InvoiceCreationAttributes): Promise<InvoiceEntity> {
     const result = await this.model.create(data);
     return result
   }
-  async update(id: number, data: UserCreationAttributes): Promise<UserEntity> {
+  async update(id: number, data: InvoiceCreationAttributes): Promise<InvoiceEntity> {
     throw new Error('Method not implemented.')
   }
   async delete(id: number): Promise<void> {
